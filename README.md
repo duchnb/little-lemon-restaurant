@@ -23,7 +23,5 @@ npm start
 # Run Tests
 npm test
 
-# Run Tests with Coverage
-npm test:cv
 ```
 
