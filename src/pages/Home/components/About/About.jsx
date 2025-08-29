@@ -28,13 +28,13 @@ export const About = () => {
                     <section id="about-images">
                         <div id="about-first-image">
                             <img
-                                src="https://ik.imagekit.io/zenius/Coursera/html-css/little-lemon-pastas_-BfcomSI5.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1674426273746"
+                                src="https://ik.imagekit.io/a6adhai64/coursera/little_lemon/reviews/top-view-table-full-food.jpg?updatedAt=1756437971097"
                                 alt="Little Lemon - Burritos"
                             />
                         </div>
                         <div id="about-second-image">
                             <img
-                                src="https://ik.imagekit.io/zenius/Coursera/html-css/little-lemon-hero_szKmkAXsc.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1675005773288"
+                                src="https://ik.imagekit.io/a6adhai64/coursera/little_lemon/reviews/top-view-table.jpg?updatedAt=1756437970805"
                                 alt="Little Lemon - Pastas"
                             />
                         </div>

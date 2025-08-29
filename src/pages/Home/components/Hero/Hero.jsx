@@ -27,7 +27,7 @@ export const Hero = () => {
       </div>
       <div className="LL-Hero-right">
         <img
-          src="https://ik.imagekit.io/zenius/Coursera/html-css/little-lemon-pizzas_v269Oq2LM.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1674426273890"
+          src="https://ik.imagekit.io/a6adhai64/coursera/little_lemon/reviews/pizza.jpg?updatedAt=1756438782366"
           alt="Little Lemon - Hero"
         />
       </div>
