@@ -55,6 +55,14 @@ export const BookingForm = ({ onSubmit }) => {
     ({ target }) => {
       const { id, name, type, value, required, min, max } = target;
 
+      // Set isDirty for select fields that trigger focus
+      if (type === 'select-one') {
+        dispatch({
+          type: 'setIsDirty',
+          payload: { [name]: true },
+        });
+      }
+
       /**********************/
       /** Validations */
       /**********************/
@@ -158,7 +166,6 @@ export const BookingForm = ({ onSubmit }) => {
         name="bookingTime"
         required
         options={normalizeAvailability(availableTimes)}
-        onFocus={onFocus}
         onBlur={onBlur}
         onChange={handleChange}
         value={formData?.bookingTime ?? ''}
@@ -187,7 +194,6 @@ export const BookingForm = ({ onSubmit }) => {
         placeholder="Choose an Occasion"
         dirtyPlaceholder="No Special Occasion"
         options={occasions_list}
-        onFocus={onFocus}
         onBlur={onBlur}
         onChange={handleChange}
         value={formData?.occasion ?? ''}

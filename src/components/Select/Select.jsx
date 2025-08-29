@@ -38,7 +38,6 @@ export const Select = forwardRef(
     const error_id = errors ? `${select_id}-error` : null;
 
     const handleChange = e => {
-      e.target.focus();
       setIsDirty(true);
       onChange && onChange(e);
     };

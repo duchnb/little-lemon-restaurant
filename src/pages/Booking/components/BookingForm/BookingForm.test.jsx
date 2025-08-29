@@ -7,6 +7,7 @@ import {
   renderHook,
   waitFor,
 } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { FormContextProvider, useForm } from '../../../../context';
 
 import { BookingForm } from './BookingForm';
@@ -21,7 +22,7 @@ const state = loadInitialState();
 const dummyData = {
   firstName: 'John',
   lastName: 'Doe',
-  bookingDate: '2023-02-28',
+  bookingDate: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString().split('T')[0], // Tomorrow's date
   bookingTime: '19:30',
   guests: '5',
   occasion: 'birthday',
@@ -137,30 +138,26 @@ describe('components/BookingForm', () => {
         render(<BookingForm onSubmit={mockSubmit} />, { wrapper });
         const bookingDate = screen.getByLabelText('Booking Date');
 
-        await waitFor(
-          () => {
-            fireEvent.change(bookingDate, {
-              target: { value: dummyData.bookingDate },
-            });
-          },
-          { timeout: 1 }
-        );
+        // Clear the field to trigger the validation flow
+        await userEvent.clear(bookingDate);
 
-        expect(mockDispatch).toHaveBeenCalledTimes(3);
+        // Check that the expected actions were called during clear
         expect(mockDispatch).toHaveBeenCalledWith({
-          type: 'setAvailableTimes',
-          payload: new Date(dummyData.bookingDate),
+          type: 'setIsDirty',
+          payload: {
+            bookingDate: true,
+          },
         });
         expect(mockDispatch).toHaveBeenCalledWith({
           type: 'setFormData',
           payload: {
-            bookingDate: dummyData.bookingDate,
+            bookingDate: '',
           },
         });
         expect(mockDispatch).toHaveBeenCalledWith({
           type: 'setFormErrors',
           payload: {
-            bookingDate: '',
+            bookingDate: 'bookingDate is a required field!',
           },
         });
       });

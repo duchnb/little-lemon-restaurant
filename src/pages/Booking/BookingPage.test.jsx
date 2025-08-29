@@ -11,7 +11,7 @@ import { BookingPage } from './BookingPage';
 const dummyData = {
   firstName: 'John',
   lastName: 'Doe',
-  bookingDate: '2023-02-28',
+  bookingDate: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString().split('T')[0], // Tomorrow's date
   bookingTime: '19:30',
   guests: '5',
   occasion: 'birthday',
