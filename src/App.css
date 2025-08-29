@@ -43,7 +43,7 @@ nav > ul > li,
 a {
   cursor: pointer;
   text-decoration: none;
-  color: var(--color-full-black);
+  color: black;
 }
 
 a:hover {
